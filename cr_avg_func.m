@@ -1,4 +1,4 @@
-function cr_med_ref = cr_med_func(referent, nvol)
+function cr_avg_ref = cr_avg_func(referent, nvol)
   % Identify unique gestures performed by the referent
   gestures_ref = unique(referent(:, 2));
 
@@ -41,6 +41,6 @@ function cr_med_ref = cr_med_func(referent, nvol)
   endfor
 
   % Normalize the consensus value across all volunteer pairs
-  cr_med_ref = delta_ref / (nvol * (nvol - 1) / 2);
+  cr_avg_ref = delta_ref / (nvol * (nvol - 1) / 2);
 endfunction
 
