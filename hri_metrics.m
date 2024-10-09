@@ -147,7 +147,7 @@ endfor
 % Consensus (Cr) --> delta = median (Vatavu 2019 - Dissimilarity Consensus)
 cr_median = [];
 for k = 1:nref
-  cr_median_ref{k} = cr_med_func(gestures_ref{k},nvol);
+  cr_median_ref{k} = cr_avg_func(gestures_ref{k},nvol);
   cr_median = [cr_median; cr_median_ref{k}];
 endfor
 
