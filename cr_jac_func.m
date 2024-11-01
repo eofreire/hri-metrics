@@ -1,4 +1,4 @@
-function cr_jac_ref = cr_jac_func(referent, nvol)
+function cr_jac_ref = cr_jac_func(referent, npart)
   % Identify unique gestures performed by the referent
   gestures_ref = unique(referent(:, 2));
 
@@ -8,13 +8,13 @@ function cr_jac_ref = cr_jac_func(referent, nvol)
   % Initialize the Jaccard consensus value (delta_ref)
   delta_ref = 0;
 
-  % Loop through each pair of volunteers
-  for i = 1:nvol
-    for j = i+1:nvol % number of volunteers
-      % Find the unique gestures performed by volunteer i
+  % Loop through each pair of participants
+  for i = 1:npart
+    for j = i+1:npart % number of participants
+      % Find the unique gestures performed by participant i
       gestures_i = unique(referent(referent(:, 1) == i, 2));
 
-      % Find the unique gestures performed by volunteer j
+      % Find the unique gestures performed by participant j
       gestures_j = unique(referent(referent(:, 1) == j, 2));
 
       % Calculate the intersection and union of the gestures
@@ -29,7 +29,7 @@ function cr_jac_ref = cr_jac_func(referent, nvol)
     endfor
   endfor
 
-  % Normalize the Jaccard consensus value across all volunteer pairs
-  cr_jac_ref = delta_ref / (nvol * (nvol - 1) / 2);
+  % Normalize the Jaccard consensus value across all participant pairs
+  cr_jac_ref = delta_ref / (npart * (npart - 1) / 2);
 endfunction
 

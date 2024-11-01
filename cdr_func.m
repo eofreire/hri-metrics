@@ -1,4 +1,4 @@
-function cdr_ref = cdr_func(referent, nvol, threshold)
+function cdr_ref = cdr_func(referent, npart, threshold)
   % Identify unique gestures performed by the referent
   gestures_ref = unique(referent(:, 2));
 
@@ -10,15 +10,15 @@ function cdr_ref = cdr_func(referent, nvol, threshold)
 
   % Loop through each gesture
   for i = 1:dif_gestures
-    % Loop through each volunteer
-    for j = 1:nvol % number of volunteers
-      % Get gestures performed by the current volunteer
+    % Loop through each participant
+    for j = 1:npart % number of participants
+      % Get gestures performed by the current participant
       gestures = referent(referent(:, 1) == j, 2);
 
       % Count the number of gestures
       [num_gestures, ~] = size(gestures);
 
-      % Check if the current gesture is performed by the volunteer
+      % Check if the current gesture is performed by the participant
       aux = find(gestures == gestures_ref(i));
       if (~isempty(aux))
         aux_ref(i) = aux_ref(i) + 1; % Increment the count for this gesture
