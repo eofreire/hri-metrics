@@ -25,10 +25,10 @@ Customizable Output:
 
 **Usage**
 
-1. Run the Script: Execute the script in Octave using run or by loading it directly.
+1. Run the Script: Execute the script in Octave using run or by loading it directly directly into the workspace.
 2. Select Input Data: Upon execution, select a .csv file containing gesture data (columns: Referent, Participant, Gesture ID).
-3. Choose Output Folder: Specify a folder for saving output data, including a gesture summary report and contingency table.
-4. Optional Guessability Calculation: The script will prompt you to choose if you would like to perform the Guessability calculation.
+3. Optional Guessability Calculation: The script will prompt you to decide if you want to perform the Guessability calculation. If you opt for this, you will be prompted to enter the selected gesture(s) for each referent.
+4. Choose Output Folder: Specify a folder for saving output data, including a gesture summary report and contingency table.
 
 **Output**
 
