@@ -6,6 +6,7 @@ close all
 [filename,path]=uigetfile("*.csv",'Select Gestures File (Referent Column; Participant Column; Gesture ID Column)');
 gestures = dlmread(strcat(path,filename),';'); % Referent, Participant, Gesture
 % Determine the number of Participants and referents
+[ntotalgest, ~] = size(gestures(:, 1));
 [nref, ~] = size(unique(gestures(:, 1)));
 [npart, ~] = size(unique(gestures(:, 2)));
 [ngest, ~] = size(unique(gestures(:, 3)));
@@ -132,13 +133,13 @@ for k = 1:nref
 endfor
 
 % Intuitiveness Level - Normalized (ILN)
-ILN = ((oor/max(oor(:)))+(vor/max(vor(:)))+(gor/max(gor(:))))/3;
-
+ILN = [];
 % ILN by referent
 ILN_R = [];
 winning_gestures_ILN = [];
 for k = 1:nref
-  ILN_ref{k} = (norm(oor_ref{k}(:,2))+norm(vor_ref{k}(:,2))+norm(gor_ref{k}(:,2)))/3;
+  ILN_ref{k} = ((oor_ref{k}(:,2)/max(oor_ref{k})(:,2))+(vor_ref{k}(:,2)/max(vor_ref{k}(:,2)))+(gor_ref{k}(:,2)/max(gor_ref{k})(:,2)))/3;
+  ILN = [ILN; ILN_ref{k}];
   ILN_R_ref = max(ILN_ref{k});
   ILN_R = [ILN_R; ILN_R_ref];
   ILN_ref{k} = [gestures_ref_col{k} ILN_ref{k}];
@@ -148,13 +149,13 @@ for k = 1:nref
 endfor
 
 % Intuitiveness Level - Normalized (ILN1)
-ILN1 = (norm(oor)+norm(vor)+norm(gor))/3;
-
+ILN1 = [];
 % ILN1 by referent
 ILN1_R = [];
 winning_gestures_ILN1 = [];
 for k = 1:nref
-  ILN1_ref{k} = ((oor_ref{k}(:,2)/max(oor_ref{k})(:,2))+(vor_ref{k}(:,2)/max(vor_ref{k}(:,2)))+(gor_ref{k}(:,2)/max(gor_ref{k})(:,2)))/3;
+  ILN1_ref{k} = (norm(oor_ref{k}(:,2))+norm(vor_ref{k}(:,2))+norm(gor_ref{k}(:,2)))/3;
+  ILN1 = [ILN1; ILN1_ref{k}];
   ILN1_R_ref = max(ILN1_ref{k});
   ILN1_R = [ILN1_R; ILN1_R_ref];
   ILN1_ref{k} = [gestures_ref_col{k} ILN1_ref{k}];
@@ -280,7 +281,9 @@ aux_name = "/gesture_summary_report.txt";
 fid = fopen(strcat(path, folder, aux_name), 'w');
 refs = (1:nref);
 fprintf(fid, 'GESTURE SUMMARY REPORT\n');
+fprintf(fid, '\nTotal Number of Gestures: %3d\n', ntotalgest);
 fprintf(fid, '\nTotal Number of Distinct Gestures: %3d\n', ngest);
+fprintf(fid, '\nAverage Number of Instances per Distinct Gesture Set: %3d\n', (ntotalgest/ngest));
 fprintf(fid, '\nAverage Number of Distinct Gestures per Referent: %5.2f\n', mean(num_gestures_ref));
 fprintf(fid, '\nStandard Deviation of Distinct Gestures per Referent: %5.2f\n', std(num_gestures_ref));
 fprintf(fid, '\nMedian Number of Distinct Gestures per Referent: %3d\n', median(num_gestures_ref));
