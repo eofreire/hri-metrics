@@ -1,0 +1,41 @@
+GESTURE SUMMARY REPORT
+
+Total Number of Gestures: 644
+
+Total Number of Distinct Gestures:  87
+
+Average Number of Instances per Distinct Gesture Set: 7.4023
+
+Average Number of Distinct Gestures per Referent: 22.50
+
+Standard Deviation of Distinct Gestures per Referent:  4.23
+
+Median Number of Distinct Gestures per Referent:  22
+
+Minimum Number of Distinct Gestures per Referent:  18
+
+Maximum Number of Distinct Gestures per Referent:  29
+
+Average Number of Proposed Gestures per Participant:  8.94
+
+Average Number of Distinct Proposed Gestures per Participant:  4.10
+
+Median Number of Proposed Gestures per Participant:  9.00
+
+Median Number of Distinct Proposed Gestures per Participant:  3.75
+
+Minimum Number of Proposed Gestures per Participant:   3
+
+Minimum Number of Distinct Proposed Gestures per Participant:   2
+
+Maximum Number of Proposed Gestures per Participant:  16
+
+Maximum Number of Distinct Proposed Gestures per Participant:   9
+
+Referent   Dist. Gest./Ref.   Avg. Gest./Part.   Avg. Dist. Gest./Part.   Median Gest./Part.   Median Dist. Gest./Part.   Min Gest./Part   Min Dist. Gest./Part.   Max Gest./Part.   Max Dist. Gest./Part.
+    1             19                9.33                  3.83                  10.50                   3.00                     3                   2                    16                   7
+    2             24                8.92                  4.33                   9.50                   4.50                     3                   2                    13                   6
+    3             25                8.42                  3.92                   8.00                   3.50                     5                   2                    14                   8
+    4             18                8.67                  3.92                   8.50                   4.00                     5                   2                    14                   7
+    5             29               10.08                  5.42                  10.00                   5.00                     5                   2                    16                   9
+    6             20                8.25                  3.17                   7.50                   3.00                     5                   2                    15                   5

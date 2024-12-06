@@ -1,0 +1,50 @@
+GESTURE SUMMARY REPORT
+
+Total Number of Gestures: 810
+
+Total Number of Distinct Gestures: 388
+
+Average Number of Instances per Distinct Gesture Set: 2.08763
+
+Average Number of Distinct Gestures per Referent: 40.87
+
+Standard Deviation of Distinct Gestures per Referent:  5.36
+
+Median Number of Distinct Gestures per Referent:  40
+
+Minimum Number of Distinct Gestures per Referent:  31
+
+Maximum Number of Distinct Gestures per Referent:  47
+
+Average Number of Proposed Gestures per Participant:  1.00
+
+Average Number of Distinct Proposed Gestures per Participant:  1.00
+
+Median Number of Proposed Gestures per Participant:  1.00
+
+Median Number of Distinct Proposed Gestures per Participant:  1.00
+
+Minimum Number of Proposed Gestures per Participant:   1
+
+Minimum Number of Distinct Proposed Gestures per Participant:   1
+
+Maximum Number of Proposed Gestures per Participant:   1
+
+Maximum Number of Distinct Proposed Gestures per Participant:   1
+
+Referent   Dist. Gest./Ref.   Avg. Gest./Part.   Avg. Dist. Gest./Part.   Median Gest./Part.   Median Dist. Gest./Part.   Min Gest./Part   Min Dist. Gest./Part.   Max Gest./Part.   Max Dist. Gest./Part.
+    1             40                1.00                  1.00                   1.00                   1.00                     1                   1                     1                   1
+    2             47                1.00                  1.00                   1.00                   1.00                     1                   1                     1                   1
+    3             38                1.00                  1.00                   1.00                   1.00                     1                   1                     1                   1
+    4             47                1.00                  1.00                   1.00                   1.00                     1                   1                     1                   1
+    5             47                1.00                  1.00                   1.00                   1.00                     1                   1                     1                   1
+    6             43                1.00                  1.00                   1.00                   1.00                     1                   1                     1                   1
+    7             46                1.00                  1.00                   1.00                   1.00                     1                   1                     1                   1
+    8             43                1.00                  1.00                   1.00                   1.00                     1                   1                     1                   1
+    9             47                1.00                  1.00                   1.00                   1.00                     1                   1                     1                   1
+   10             39                1.00                  1.00                   1.00                   1.00                     1                   1                     1                   1
+   11             31                1.00                  1.00                   1.00                   1.00                     1                   1                     1                   1
+   12             35                1.00                  1.00                   1.00                   1.00                     1                   1                     1                   1
+   13             34                1.00                  1.00                   1.00                   1.00                     1                   1                     1                   1
+   14             36                1.00                  1.00                   1.00                   1.00                     1                   1                     1                   1
+   15             40                1.00                  1.00                   1.00                   1.00                     1                   1                     1                   1

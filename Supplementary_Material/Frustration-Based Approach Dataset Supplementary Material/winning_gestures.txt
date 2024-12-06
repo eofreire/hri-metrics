@@ -1,0 +1,65 @@
+Winning Gestures 
+
+Contingency Table Winning Gestures: 
+Referent  1:  2 
+Referent  2: 28 
+Referent  3: 39 
+Referent  4: 27 
+Referent  5: 64 
+Referent  6:  5 
+
+Popularity Winning Gestures: 
+Referent  1:  2 
+Referent  2: 28 
+Referent  3: 39 
+Referent  4: 27 
+Referent  5: 64 
+Referent  6:  5 
+
+GOR Winning Gestures: 
+Referent  1:  2 
+Referent  2: 28 
+Referent  3: 39 
+Referent  4: 27 
+Referent  5: 64 
+Referent  6:  5 
+
+VOR Winning Gestures: 
+Referent  1:  2 
+Referent  2: 28 
+Referent  3: 39 
+Referent  4: 27 
+Referent  5:  5 43 64 
+Referent  6:  5 
+
+OOR Winning Gestures: 
+Referent  1:  2 
+Referent  2: 28 
+Referent  3: 39 
+Referent  4: 27 
+Referent  5: 43 
+Referent  6:  5 
+
+IL Winning Gestures: 
+Referent  1:  2 
+Referent  2: 28 
+Referent  3: 39 
+Referent  4: 27 
+Referent  5: 43 
+Referent  6:  5 
+
+ILN Winning Gestures: 
+Referent  1:  2 
+Referent  2: 28 
+Referent  3: 39 
+Referent  4: 27 
+Referent  5: 43 
+Referent  6:  5 
+
+ILN1 Winning Gestures: 
+Referent  1:  2 
+Referent  2: 28 
+Referent  3: 39 
+Referent  4: 27 
+Referent  5: 43 
+Referent  6:  5 
