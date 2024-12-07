@@ -56,6 +56,15 @@ This project depends on several custom functions defined within the script:
   * cdr_func: Calculates the Consensus-Distinct Ratio.
   * Additional functions for consensus measurements (median, minimum, maximum) and guessability.
 
+**NOTE:**
+
+Three values of Intuitiveness Level are calculated:
+  *	IL: Calculated as the arithmetic mean of GOR, VOR, and OOR values (without normalization).
+  *	ILN: Calculated as the arithmetic mean of GOR, VOR, and OOR values with max-normalization.
+  *	ILN1: Calculated as the arithmetic mean of GOR, VOR, and OOR values with min-max normalization.
+
+In the paper, ILN (max-normalization) was used for individual gesture metrics, while for Vocabulary Metrics analysis, the maximum IL (without normalization) per referent was assigned as the IL_R value.
+
 **License**
 
 This project is licensed under the MIT License. See the LICENSE file for details.
