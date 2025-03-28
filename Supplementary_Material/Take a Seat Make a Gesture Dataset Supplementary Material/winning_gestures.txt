@@ -68,7 +68,7 @@ Referent 13: 120
 Referent 14: 114 238 
 Referent 15: 100 
 
-OOR Winning Gestures: 
+ORT Winning Gestures: 
 Referent  1: 101 
 Referent  2: 96 
 Referent  3:  9 
@@ -86,40 +86,6 @@ Referent 14: 114 238
 Referent 15: 100 
 
 IL Winning Gestures: 
-Referent  1: 101 
-Referent  2: 96 
-Referent  3:  9 
-Referent  4:  7 92 96 98 176 294 316 
-Referent  5: 107 367 372 
-Referent  6: 31 
-Referent  7: 200 
-Referent  8: 100 
-Referent  9: 315 
-Referent 10: 101 
-Referent 11: 356 
-Referent 12: 358 
-Referent 13: 120 
-Referent 14: 114 238 
-Referent 15: 100 
-
-ILN Winning Gestures: 
-Referent  1: 101 
-Referent  2: 96 
-Referent  3:  9 
-Referent  4:  7 92 96 98 176 294 316 
-Referent  5: 107 367 372 
-Referent  6: 31 
-Referent  7: 200 
-Referent  8: 100 
-Referent  9: 315 
-Referent 10: 101 
-Referent 11: 356 
-Referent 12: 358 
-Referent 13: 120 
-Referent 14: 114 238 
-Referent 15: 100 
-
-ILN1 Winning Gestures: 
 Referent  1: 101 
 Referent  2: 96 
 Referent  3:  9 

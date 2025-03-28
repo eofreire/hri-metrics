@@ -2,6 +2,10 @@ clc
 clear all
 close all
 
+pkg load optim
+pkg load struct
+
+
 % Read gesture data filename
 [filename,path]=uigetfile("*.csv",'Select Gestures File (Referent Column; Participant Column; Gesture ID Column)');
 gestures = dlmread(strcat(path,filename),';'); % Referent, Participant, Gesture
@@ -70,16 +74,16 @@ for k = 1:nref
   winning_gestures_gor{k} = gor_ref{k}(max_gor_gesture_rows, 1);
 endfor
 
-% OOR (Occurrence Rate Overall)
-oor = [];
-winning_gestures_oor = [];
+% ORT (Occurrence Rate Overall)
+ort = [];
+winning_gestures_ort = [];
 for k = 1:nref
-  oor_ref{k} = oor_func(gestures_ref{k},npart);
-  oor = [oor; oor_ref{k}];
-  oor_ref{k} = [gestures_ref_col{k} oor_ref{k}];
-  max_oor = max(oor_ref{k}(:,2));
-  max_oor_gesture_rows = find(oor_ref{k}(:,2) == max_oor);
-  winning_gestures_oor{k} = oor_ref{k}(max_oor_gesture_rows, 1);
+  ort_ref{k} = ort_func(gestures_ref{k},npart);
+  ort = [ort; ort_ref{k}];
+  ort_ref{k} = [gestures_ref_col{k} ort_ref{k}];
+  max_ort = max(ort_ref{k}(:,2));
+  max_ort_gesture_rows = find(ort_ref{k}(:,2) == max_ort);
+  winning_gestures_ort{k} = ort_ref{k}(max_ort_gesture_rows, 1);
 endfor
 
 % Participant Occurrence Rate (VOR)
@@ -117,13 +121,13 @@ for k = 1:nref
 endfor
 
 % Intuitiveness Level (IL)
-IL = (oor+vor+gor)/3;
+IL = (ort+vor+gor)/3;
 
 % IL by referent
 IL_R = [];
 winning_gestures_IL = [];
 for k = 1:nref
-  IL_ref{k} = ((oor_ref{k}(:,2)+vor_ref{k}(:,2)+gor_ref{k}(:,2))/3);
+  IL_ref{k} = ((ort_ref{k}(:,2)+vor_ref{k}(:,2)+gor_ref{k}(:,2))/3);
   IL_R_ref = max(IL_ref{k});
   IL_R = [IL_R; IL_R_ref];
   IL_ref{k} = [gestures_ref_col{k} IL_ref{k}];
@@ -132,36 +136,14 @@ for k = 1:nref
   winning_gestures_IL{k} = IL_ref{k}(max_IL_gesture_rows, 1);
 endfor
 
-% Intuitiveness Level - Normalized (ILN)
-ILN = [];
-% ILN by referent
-ILN_R = [];
-winning_gestures_ILN = [];
+% Main program
+% Consensus (Cr) --> delta = average (Vatavu 2019 - Dissimilarity Consensus)
+CGR = [];
+tau_0 = [];
 for k = 1:nref
-  ILN_ref{k} = ((oor_ref{k}(:,2)/max(oor_ref{k})(:,2))+(vor_ref{k}(:,2)/max(vor_ref{k}(:,2)))+(gor_ref{k}(:,2)/max(gor_ref{k})(:,2)))/3;
-  ILN = [ILN; ILN_ref{k}];
-  ILN_R_ref = max(ILN_ref{k});
-  ILN_R = [ILN_R; ILN_R_ref];
-  ILN_ref{k} = [gestures_ref_col{k} ILN_ref{k}];
-  max_ILN = max(ILN_ref{k}(:,2));
-  max_ILN_gesture_rows = find(ILN_ref{k}(:,2) == max_ILN);
-  winning_gestures_ILN{k} = ILN_ref{k}(max_ILN_gesture_rows, 1);
-endfor
-
-% Intuitiveness Level - Normalized (ILN1)
-ILN1 = [];
-% ILN1 by referent
-ILN1_R = [];
-winning_gestures_ILN1 = [];
-for k = 1:nref
-  ILN1_ref{k} = (norm(oor_ref{k}(:,2))+norm(vor_ref{k}(:,2))+norm(gor_ref{k}(:,2)))/3;
-  ILN1 = [ILN1; ILN1_ref{k}];
-  ILN1_R_ref = max(ILN1_ref{k});
-  ILN1_R = [ILN1_R; ILN1_R_ref];
-  ILN1_ref{k} = [gestures_ref_col{k} ILN1_ref{k}];
-  max_ILN1 = max(ILN1_ref{k}(:,2));
-  max_ILN1_gesture_rows = find(ILN1_ref{k}(:,2) == max_ILN1);
-  winning_gestures_ILN1{k} = ILN1_ref{k}(max_ILN1_gesture_rows, 1);
+  [CGR_ref{k},tau_0_ref{k}] = consensus_func(gestures_ref{k}, npart);
+  CGR = [CGR; CGR_ref{k}];
+	tau_0 = [tau_0; tau_0_ref{k}];
 endfor
 
 % Consensus-Distinct Ratio (CDR)
@@ -172,58 +154,37 @@ for k = 1:nref
   cdr = [cdr; cdr_ref{k}];
 endfor
 
-% Consensus (Cr) --> delta = median (Vatavu 2019 - Dissimilarity Consensus)
-cr_median = [];
+% General Agreement (GA) --> SIM = Jaccard
+ar_jac = [];
 for k = 1:nref
-  cr_median_ref{k} = cr_med_func(gestures_ref{k},npart);
-  cr_median = [cr_median; cr_median_ref{k}];
+  ar_jac_ref{k} = ar_jac_func(gestures_ref{k},npart);
+  ar_jac = [ar_jac; ar_jac_ref{k}];
 endfor
 
-% Consensus (Cr) --> delta = min
-cr_min = [];
+% General Agreement (GA) --> SIM = Sorensen
+ar_sor = [];
 for k = 1:nref
-  cr_min_ref{k} = cr_min_func(gestures_ref{k},npart);
-  cr_min = [cr_min; cr_min_ref{k}];
+  ar_sor_ref{k} = ar_sor_func(gestures_ref{k},npart);
+  ar_sor = [ar_sor; ar_sor_ref{k}];
 endfor
 
-% Consensus (Cr) --> delta = max
-cr_max = [];
+% General Agreement (GA) --> delta = overlap
+ar_overlap = [];
 for k = 1:nref
-  cr_max_ref{k} = cr_max_func(gestures_ref{k},npart);
-  cr_max = [cr_max; cr_max_ref{k}];
-endfor
-
-% Consensus (Cr) --> delta = jac
-cr_jac = [];
-for k = 1:nref
-  cr_jac_ref{k} = cr_jac_func(gestures_ref{k},npart);
-  cr_jac = [cr_jac; cr_jac_ref{k}];
-endfor
-
-% Consensus (Cr) --> delta = sor
-cr_sor = [];
-for k = 1:nref
-  cr_sor_ref{k} = cr_sor_func(gestures_ref{k},npart);
-  cr_sor = [cr_sor; cr_sor_ref{k}];
-endfor
-
-% Consensus (Cr) --> delta = overlap
-cr_overlap = [];
-for k = 1:nref
-  cr_overlap_ref{k} = cr_over_func(gestures_ref{k},npart);
-  cr_overlap = [cr_overlap; cr_overlap_ref{k}];
+  ar_overlap_ref{k} = ar_over_func(gestures_ref{k},npart);
+  ar_overlap = [ar_overlap; ar_overlap_ref{k}];
 endfor
 
 % Guessability
 guessability = -1;
 % Create a dialog asking the user if they want to perform the guessability calculation
-choice = menu("Do you want to perform the guessability calculation?", "Yes", "No");
+choice = menu("Do you want to perform the guessability calculation?", "No", "Yes");
 % Check the user's choice
 if choice == 1
+    disp("Guessability calculation skipped.");
+else
     disp("Performing guessability calculation...");
     guessability = guess_func(gestures,npart,nref);
-else
-    disp("Guessability calculation skipped.");
 end
 
 [contingency_table,winning_gestures_contingency] = contingency_func(gestures,gestures_ref);
@@ -237,48 +198,23 @@ endfor
 
 %% Data Output
 
-% Output folder name selection
-while true
-  % Ask the user for the output folder name
-  prompt = {'Enter output folder name:'};
-  dlgtitle = 'Output Folder Selection';
-  dims = [1 50];
-  definput = {''};
-  answer = inputdlg(prompt, dlgtitle, dims, definput);
-  if isempty(answer)
-    disp('No input provided. Exiting...');
-    return;
-  end
-  folder = answer{1};
-  % Check if the folder exists
-  if isfolder(folder)
-    msg = sprintf('Folder "%s" already exists.', folder);
-    choice = questdlg([msg ' Do you want to overwrite the files in this folder?'], ...
-    'Folder Exists', 'Yes', 'No', 'Cancel', 'Cancel');
-    % Handle user's response
-    switch choice
-      case 'Yes'
-        msgbox('Overwriting existing files...');
-        break; % Proceed with the current directory
-      case 'No'
-        msgbox('Please choose a new folder name.');
-        % Loop continues to ask for a new name
-      case 'Cancel'
-        msgbox('Operation cancelled.');
-        return; % Exit without any action
-      end
-  else
-    % Create the folder if it doesn't exist
-    mkdir(folder);
-    break; % Exit the loop
-  end
+% Call the function to get the output_folder path
+output_folder = select_or_create_folder();
+
+% Check if the user cancelled the operation
+if isempty(output_folder)
+  disp('No folder selected. Exiting...');
+  return;
+else
+  disp(['Selected folder: ', output_folder]);
+  % Proceed with your code using the selected folder
 end
 
 aux_name = "/contingency_table.csv";
-dlmwrite(strcat(path,folder,aux_name),contingency_table,';');
+dlmwrite(strcat(output_folder,aux_name),contingency_table,';');
 
 aux_name = "/gesture_summary_report.txt";
-fid = fopen(strcat(path, folder, aux_name), 'w');
+fid = fopen(strcat(output_folder, aux_name), 'w');
 refs = (1:nref);
 fprintf(fid, 'GESTURE SUMMARY REPORT\n');
 fprintf(fid, '\nTotal Number of Gestures: %3d\n', ntotalgest);
@@ -308,9 +244,8 @@ endfor
 fclose(fid);
 
 aux_name = "/winning_gestures.txt";
-fid = fopen(strcat(path, folder, aux_name), 'w');
+fid = fopen(strcat(output_folder, aux_name), 'w');
 refs = (1:nref);
-
 % Loop over each referent
 % Write Contingency Gestures
 fprintf(fid, 'Winning Gestures \n');
@@ -353,12 +288,12 @@ for k = 1:nref
     fprintf(fid, '\n');
 endfor
 
-% Write OOR Gestures
-fprintf(fid, '\nOOR Winning Gestures: \n');
+% Write ORT Gestures
+fprintf(fid, '\nORT Winning Gestures: \n');
 for k = 1:nref
     fprintf(fid, 'Referent %2d: ', refs(k));
-    for l = 1:length(winning_gestures_oor{k})
-        fprintf(fid, '%2d ', winning_gestures_oor{k}(l));
+    for l = 1:length(winning_gestures_ort{k})
+        fprintf(fid, '%2d ', winning_gestures_ort{k}(l));
     endfor
     fprintf(fid, '\n');
 endfor
@@ -373,30 +308,10 @@ for k = 1:nref
     fprintf(fid, '\n');
 endfor
 
-% Write ILN Gestures
-fprintf(fid, '\nILN Winning Gestures: \n');
-for k = 1:nref
-    fprintf(fid, 'Referent %2d: ', refs(k));
-    for l = 1:length(winning_gestures_ILN{k})
-        fprintf(fid, '%2d ', winning_gestures_ILN{k}(l));
-    endfor
-    fprintf(fid, '\n');
-endfor
-
-% Write ILN1 Gestures
-fprintf(fid, '\nILN1 Winning Gestures: \n');
-for k = 1:nref
-    fprintf(fid, 'Referent %2d: ', refs(k));
-    for l = 1:length(winning_gestures_ILN1{k})
-        fprintf(fid, '%2d ', winning_gestures_ILN1{k}(l));
-    endfor
-    fprintf(fid, '\n');
-endfor
-
 fclose(fid);
 
 aux_name = "/vocabulary_metrics.txt";
-fid = fopen(strcat(path,folder,aux_name),'w');
+fid = fopen(strcat(output_folder,aux_name),'w');
 fprintf(fid, 'Average Max-Consensus =%7.2f%%\n\n',(mean(max_con)*100));
 fprintf(fid, 'Maximum Max-Consensus =%7.2f%%\n\n',(max(max_con)*100));
 fprintf(fid, 'Average Constant-Distinct Ratio =%7.2f%%\n\n',(mean(cdr)*100));
@@ -405,22 +320,22 @@ if guessability != -1
   fprintf(fid, 'Guessability =%7.2f%%\n\n',(guessability*100));
 endif
 refs = (1:nref);
-fprintf(fid, ' Referent  POP       Max-Con     CDR      AR*(min)   AR*(med)   AR*(max)   AR*(Jac)   AR*(Sor)   A*(Over)     IL_R      ILN_R      ILN1_R\n');
-fprintf(fid, '%5d %10.4f %10.4f %10.4f %10.4f %10.4f %10.4f %10.4f %10.4f %10.4f %10.4f %10.4f %10.4f\n', [refs; pop_R'; max_con'; cdr'; cr_min'; cr_median'; cr_max'; cr_jac'; cr_sor'; cr_overlap'; IL_R'; ILN_R'; ILN1_R']);
+fprintf(fid, ' Referent  POP       Max-Con     CDR        CGR      AR*(Jac)   AR*(Sor)   AR*(Over)    IL_R\n');
+fprintf(fid, '%5d %10.4f %10.4f %10.4f %10.4f %10.4f %10.4f %10.4f %10.4f\n', [refs; pop_R'; max_con'; cdr'; CGR'; ar_jac'; ar_sor'; ar_overlap'; IL_R']);
 fclose(fid);
 
 aux_name = "/vocabulary_metrics.csv";
-dlmwrite(strcat(path,folder,aux_name),[refs' ILN_R ILN1_R IL_R pop_R max_con cdr cr_min cr_median cr_max cr_jac cr_sor cr_overlap],';');
+dlmwrite(strcat(output_folder,aux_name),[refs' pop_R max_con cdr CGR ar_jac ar_sor ar_overlap IL_R],';');
 
 aux_name = "/gesture_metrics.csv";
-dlmwrite(strcat(path,folder,aux_name),[referent_col gestures_col contingency popularity gor vor oor IL ILN ILN1],';');
+dlmwrite(strcat(output_folder,aux_name),[referent_col gestures_col contingency popularity gor vor ort IL],';');
 
 aux_name = "_gesture_metrics.csv";
 ref = "/referent_";
 for k = 1:nref
-  ref_num = num2str(k);
-  file_name = strcat(path,folder,ref,ref_num,aux_name);
-  dlmwrite(file_name,[contingency_ref{k} pop_ref{k}(:,2) gor_ref{k}(:,2) vor_ref{k}(:,2) oor_ref{k}(:,2) IL_ref{k}(:,2) ILN_ref{k}(:,2) ILN1_ref{k}(:,2)],';');
+    ref_num = num2str(k);
+    file_name = strcat(output_folder,ref,ref_num,aux_name);
+    dlmwrite(file_name,[contingency_ref{k} pop_ref{k}(:,2) gor_ref{k}(:,2) vor_ref{k}(:,2) ort_ref{k}(:,2) IL_ref{k}(:,2)],';');
 endfor
 
 Finished = 'Ok'
