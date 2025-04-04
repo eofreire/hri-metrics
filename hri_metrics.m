@@ -120,20 +120,20 @@ for k = 1:nref
   winning_gestures_popularity{k} = pop_ref{k}(max_pop_gesture_rows, 1);
 endfor
 
-% Intuitiveness Level (IL)
-IL = (ort+vor+gor)/3;
-
-% IL by referent
-IL_R = [];
-winning_gestures_IL = [];
+% Intuitiveness Level - Max Normalized (ILN)
+ILN = [];
+% ILN by referent
+ILN_R = [];
+winning_gestures_ILN = [];
 for k = 1:nref
-  IL_ref{k} = ((ort_ref{k}(:,2)+vor_ref{k}(:,2)+gor_ref{k}(:,2))/3);
-  IL_R_ref = max(IL_ref{k});
-  IL_R = [IL_R; IL_R_ref];
-  IL_ref{k} = [gestures_ref_col{k} IL_ref{k}];
-  max_IL = max(IL_ref{k}(:,2));
-  max_IL_gesture_rows = find(IL_ref{k}(:,2) == max_IL);
-  winning_gestures_IL{k} = IL_ref{k}(max_IL_gesture_rows, 1);
+  ILN_ref{k} = ((ort_ref{k}(:,2)/max(ort_ref{k})(:,2))+(vor_ref{k}(:,2)/max(vor_ref{k}(:,2)))+(gor_ref{k}(:,2)/max(gor_ref{k})(:,2)))/3;
+  ILN = [ILN; ILN_ref{k}];
+  ILN_R_ref = max(ILN_ref{k});
+  ILN_R = [ILN_R; ILN_R_ref];
+  ILN_ref{k} = [gestures_ref_col{k} ILN_ref{k}];
+  max_ILN = max(ILN_ref{k}(:,2));
+  max_ILN_gesture_rows = find(ILN_ref{k}(:,2) == max_ILN);
+  winning_gestures_ILN{k} = ILN_ref{k}(max_ILN_gesture_rows, 1);
 endfor
 
 % Main program
@@ -298,12 +298,12 @@ for k = 1:nref
     fprintf(fid, '\n');
 endfor
 
-% Write IL Gestures
-fprintf(fid, '\nIL Winning Gestures: \n');
+% Write ILN Gestures
+fprintf(fid, '\nILN Winning Gestures: \n');
 for k = 1:nref
     fprintf(fid, 'Referent %2d: ', refs(k));
-    for l = 1:length(winning_gestures_IL{k})
-        fprintf(fid, '%2d ', winning_gestures_IL{k}(l));
+    for l = 1:length(winning_gestures_ILN{k})
+        fprintf(fid, '%2d ', winning_gestures_ILN{k}(l));
     endfor
     fprintf(fid, '\n');
 endfor
@@ -320,22 +320,22 @@ if guessability != -1
   fprintf(fid, 'Guessability =%7.2f%%\n\n',(guessability*100));
 endif
 refs = (1:nref);
-fprintf(fid, ' Referent  POP       Max-Con     CDR        CGR      AR*(Jac)   AR*(Sor)   AR*(Over)    IL_R\n');
-fprintf(fid, '%5d %10.4f %10.4f %10.4f %10.4f %10.4f %10.4f %10.4f %10.4f\n', [refs; pop_R'; max_con'; cdr'; CGR'; ar_jac'; ar_sor'; ar_overlap'; IL_R']);
+fprintf(fid, ' Referent  POP       Max-Con     CDR        CGR      AR*(Jac)   AR*(Sor)   AR*(Over)    ILN_R\n');
+fprintf(fid, '%5d %10.4f %10.4f %10.4f %10.4f %10.4f %10.4f %10.4f %10.4f\n', [refs; pop_R'; max_con'; cdr'; CGR'; ar_jac'; ar_sor'; ar_overlap'; ILN_R']);
 fclose(fid);
 
 aux_name = "/vocabulary_metrics.csv";
-dlmwrite(strcat(output_folder,aux_name),[refs' pop_R max_con cdr CGR ar_jac ar_sor ar_overlap IL_R],';');
+dlmwrite(strcat(output_folder,aux_name),[refs' pop_R max_con cdr CGR ar_jac ar_sor ar_overlap ILN_R],';');
 
 aux_name = "/gesture_metrics.csv";
-dlmwrite(strcat(output_folder,aux_name),[referent_col gestures_col contingency popularity gor vor ort IL],';');
+dlmwrite(strcat(output_folder,aux_name),[referent_col gestures_col contingency popularity gor vor ort ILN],';');
 
 aux_name = "_gesture_metrics.csv";
 ref = "/referent_";
 for k = 1:nref
     ref_num = num2str(k);
     file_name = strcat(output_folder,ref,ref_num,aux_name);
-    dlmwrite(file_name,[contingency_ref{k} pop_ref{k}(:,2) gor_ref{k}(:,2) vor_ref{k}(:,2) ort_ref{k}(:,2) IL_ref{k}(:,2)],';');
+    dlmwrite(file_name,[contingency_ref{k} pop_ref{k}(:,2) gor_ref{k}(:,2) vor_ref{k}(:,2) ort_ref{k}(:,2) ILN_ref{k}(:,2)],';');
 endfor
 
 Finished = 'Ok'
