@@ -320,12 +320,12 @@ if guessability != -1
   fprintf(fid, 'Guessability =%7.2f%%\n\n',(guessability*100));
 endif
 refs = (1:nref);
-fprintf(fid, ' Referent  POP       Max-Con     CDR        CGR      AR*(Jac)   AR*(Sor)   AR*(Over)    ILN_R\n');
-fprintf(fid, '%5d %10.4f %10.4f %10.4f %10.4f %10.4f %10.4f %10.4f %10.4f\n', [refs; pop_R'; max_con'; cdr'; CGR'; ar_jac'; ar_sor'; ar_overlap'; ILN_R']);
+fprintf(fid, ' Referent  POP       Max-Con     CDR        CGR       Tau_0     AR*(Jac)   AR*(Sor)   AR*(Over)\n');
+fprintf(fid, '%5d %10.4f %10.4f %10.4f %10.4f %10.4f %10.4f %10.4f %10.4f\n', [refs; pop_R'; max_con'; cdr'; CGR'; tau_0'; ar_jac'; ar_sor'; ar_overlap']);
 fclose(fid);
 
 aux_name = "/vocabulary_metrics.csv";
-dlmwrite(strcat(output_folder,aux_name),[refs' pop_R max_con cdr CGR ar_jac ar_sor ar_overlap ILN_R],';');
+dlmwrite(strcat(output_folder,aux_name),[refs' pop_R max_con cdr CGR tau_0 ar_jac ar_sor ar_overlap],';');
 
 aux_name = "/gesture_metrics.csv";
 dlmwrite(strcat(output_folder,aux_name),[referent_col gestures_col contingency popularity gor vor ort ILN],';');
