@@ -34,8 +34,8 @@ for k = 1:nref
   ##[corr_S_tau,coor_S_p] = corr(vocabulary_metrics, 'type', 'Spearman');
   titulo_K = strcat('Kendall Referent:',ref_num);
   titulo_S = strcat('Spearman Referent:',ref_num);
-  exibe_tabela(corr_K,titulo_K,VarNames_gesture_metrics,low_thresh,mid_thresh,hig_thresh);
-#  exibe_tabela(corr_S,titulo_S,VarNames_gesture_metrics,low_thresh,mid_thresh,hig_thresh);
+  display_table(corr_K,titulo_K,VarNames_gesture_metrics,low_thresh,mid_thresh,hig_thresh);
+#  display_table(corr_S,titulo_S,VarNames_gesture_metrics,low_thresh,mid_thresh,hig_thresh);
 endfor
 
 [filename,path]=uigetfile("*.csv",'Select Vocabulary Metrics File');
@@ -49,7 +49,5 @@ corr_S = spearman(vocabulary_metrics);
 ##[corr_K_tau,coor_K_p] = corr(vocabulary_metrics, 'type', 'Kendall');
 ##[corr_S_tau,coor_S_p] = corr(vocabulary_metrics, 'type', 'Spearman');
 
-exibe_tabela(corr_K,'Kendall',VarNames_vocabylary_metrics,low_thresh,mid_thresh,hig_thresh);
-exibe_tabela(corr_S,'Spearman',VarNames_vocabylary_metrics,low_thresh,mid_thresh,hig_thresh);
-
-
+display_table(corr_K,'Kendall',VarNames_vocabylary_metrics,low_thresh,mid_thresh,hig_thresh);
+display_table(corr_S,'Spearman',VarNames_vocabylary_metrics,low_thresh,mid_thresh,hig_thresh);

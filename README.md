@@ -1,74 +1,201 @@
 # hri_metrics
 
-**Gesture Analysis in Octave**
+Gesture analysis tools and metrics for human–robot / human–machine interaction research.
 
-This Octave project processes gesture data to generate descriptive metrics and analysis reports for human-machine interaction studies. The script performs calculations based on user-selected gesture data, allowing researchers to assess patterns and consensus within participant-proposed gestures.
+This repository contains implementations to compute descriptive gesture metrics (occurrence rates, intuitiveness indices, consensus measures, Consensus‑Distinct Ratio (CDR), and optional guessability calculations). The codebase is organized by language and purpose to make it easier to run analyses and reproduce results from experiments.
 
-**Features**
+This README mirrors the current repository layout and includes exact entry-point filenames for the Octave and R workflows.
 
-Data Selection: Interactive file selection for gesture data in .csv format with columns for referents, participants, and gesture IDs.
+## Quick summary
 
-Metrics Calculation:
-  * Calculates occurrence rates, intuitiveness levels, and consensus across gestures by referent and participant.
-  * Supports multiple metrics such as General Occurrence Rate (GOR), Overall Occurrence Rate (OOR), and Participant Occurrence Rate (VOR).
-  * Includes calculations for Guessability and Consensus-Distinct Ratio (CDR) based on user input.
+- Purpose: Compute and report gesture statistics and vocabulary metrics from gesture labeling datasets.
+- Languages: Octave (primary analysis), R (additional processing/visualization).
+- Input: CSV files with gesture annotations (referent, participant, gesture id).
+- Output: Text and CSV reports (gesture summary, contingency tables), and optionally plots when using R scripts.
 
-Customizable Output:
-  * Prompts the user for an output folder to store results.
-  * Provides an option to overwrite existing output folders.
-  * Generates a summary report and a contingency table file in the chosen output folder.
+## Features
 
-**Requirements**
+- Interactive and scriptable processing of gesture datasets.
+- Multiple occurrence metrics (GOR, ORT, VOR) and Intuitiveness Level (IL) with three normalizations.
+- Consensus measures and the Consensus‑Distinct Ratio (CDR).
+- Optional Guessability calculation based on participant-provided labels.
+- Generates human-readable summary reports and machine-readable contingency tables for downstream analysis.
 
-  * Software: Octave (version 9.1 or higher)
-  * Libraries: No additional libraries required.
+## Requirements
 
-**Usage**
+- Octave (recommended >= 9.1)
+- R (recommended >= 4.0) — only if you plan to run the R scripts in `R_file/`
+- No special Octave toolboxes are required for the core scripts; check the top of each file for specific package requirements.
+- OS: cross-platform; avoid committing macOS `.DS_Store` files (see housekeeping below).
 
-1. Run the Script: Execute the script in Octave using run or by loading it directly directly into the workspace.
-2. Select Input Data: Upon execution, select a .csv file containing gesture data (columns: Referent, Participant, Gesture ID).
-3. Optional Guessability Calculation: The script will prompt you to decide if you want to perform the Guessability calculation. If you opt for this, you will be prompted to enter the selected gesture(s) for each referent.
-4. Choose Output Folder: Specify a folder for saving output data, including a gesture summary report and contingency table.
+## Repository structure (current)
 
-**Output**
+Top-level folders and important files:
+- Octave Files/  
+  - Main entry points:
+    - hri_metrics.m — primary interactive/scriptable analysis driver (recommended entry point)
+    - gesture_metrics_eval.m — evaluation / alternate analysis script
+  - Sample dataset:
+    - FBA_gestures.csv
+  - Key helper functions (not exhaustive):
+    - gor_func.m
+    - ort_func.m
+    - vor_func.m
+    - cdr_func.m
+    - cr_func.m, cr_avg_func.m, cr_med_func.m, cr_min_func.m, cr_max_func.m, cr_sor_func.m (consensus-related helpers)
+    - consensus_func.m
+    - contingency_func.m
+    - calculate_DIM.m
+    - guess_func.m
+    - display_table.m
+    - select_or_create_folder.m
+    - norm.m, org_func.m, ar_* and cr_* jac/sor/over functions
+  - Other files: DS_Store (should be removed/ignored)
+- R_file/
+  - Metrics_correlation.R — R script for metric correlation/visualization
+- Supplementary_Material/  
+  - Example datasets and supporting files (see folder for contents)
+- README.md — this file
+- LICENSE — MIT License (see file in repo root)
 
-The script generates:
-  * gesture_summary_report.txt: Contains statistical summaries of gestures across participants and referents.
-  * contingency_table.csv: A contingency table capturing gesture occurrences by referent and participant.
+## Input data format
 
-**Metrics Description**
+The Octave scripts expect a CSV file with columns including (at minimum):
+- Referent (what the gesture refers to)
+- Participant (participant identifier)
+- Gesture ID (gesture label/identifier given by the participant)
 
-  * GOR (General Occurrence Rate): Measures the frequency of gestures by referent
-  * OOR (Overall Occurrence Rate): Calculates overall gesture occurrence across all participants
-  * VOR (Participant Occurrence Rate): Tracks gesture occurrence specific to participants
-  * Intuitiveness Level (IL): Averages OOR, VOR, and GOR to assess gesture intuitiveness
-  * Consensus (Cr): Measures consensus across different referent-gesture pairs based on selected criteria
-  * Popularity: Weighted by gesture occurrence rates, indicating gesture popularity
-  * CDR (Consensus-Distinct Ratio): Evaluates distinctiveness and consensus of gestures based on a threshold
-  * Guessability: Calculates the likelihood of gesture adoption, based on participant feedback
+Column names are case-insensitive, but the script expects the columns to be present in some order. If your CSV uses different names, either rename the columns or adapt the input-parsing portion of the main script.
 
-**Custom Functions**
+A sample dataset is provided at `Octave Files/FBA_gestures.csv`.
 
-This project depends on several custom functions defined within the script:
-  * gor_func: Calculates General Occurrence Rate.
-  * oor_func: Computes Overall Occurrence Rate.
-  * vor_func: Determines Participant Occurrence Rate.
-  * cdr_func: Calculates the Consensus-Distinct Ratio.
-  * Additional functions for consensus measurements (median, minimum, maximum) and guessability.
+## Usage — Octave (exact commands)
 
-**NOTE:**
+1. Open Octave (CLI or GUI).
+2. Change directory to the Octave scripts folder:
+   ```octave
+   cd('Octave Files')
+   ```
+3. Run the primary analysis driver:
+   ```octave
+   run('hri_metrics.m')
+   ```
+   or call the function (if in Octave path):
+   ```octave
+   hri_metrics
+   ```
+4. Alternate analysis/evaluation entry point:
+   ```octave
+   run('gesture_metrics_eval.m')
+   ```
 
-Three values of Intuitiveness Level are calculated:
-  *	IL: Calculated as the arithmetic mean of GOR, VOR, and OOR values (without normalization).
-  *	ILN: Calculated as the arithmetic mean of GOR, VOR, and OOR values with max-normalization.
-  *	ILN1: Calculated as the arithmetic mean of GOR, VOR, and OOR values with min-max normalization.
+Expected interactive prompts (behavior of hri_metrics.m):
+- Select an input CSV file (or provide a path programmatically).
+- Choose whether to perform Guessability calculations.
+- Select or create an output folder (the script can prompt to overwrite).
+- The script will write one or more output files into the chosen folder.
 
-In the paper, ILN (max-normalization) was used for individual gesture metrics, while for Vocabulary Metrics analysis, the maximum IL (without normalization) per referent was assigned as the IL_R value.
+Non-interactive usage:
+- Inspect the top of `hri_metrics.m` to see how input/output variables are read; you can create a small wrapper script that sets:
+  - input CSV path
+  - output folder path
+  - guessability flag
+  and then calls the functions used by `hri_metrics.m` for batch processing or CI runs.
 
-**License**
+## Usage — R (exact command)
+
+From the repository root (or anywhere), run the R script:
+```bash
+Rscript "R_file/Metrics_correlation.R" --args input="path/to/contingency_table.csv" output="results/"
+```
+
+
+## Outputs
+
+Files typically produced by the Octave workflow (written inside the output folder you choose):
+- gesture_summary_report.txt — human-readable statistical summary per referent/participant.
+- contingency_table.csv — machine-readable table of occurrences (referent × gesture × participant).
+- Additional CSVs containing computed metrics (GOR, ORT, VOR, IL / ILN / ILN1, Cr, popularity, CDR).
+- If R scripts are run, generated plots (PNG, PDF) or aggregated reports.
+
+Keep outputs in dedicated results directories (e.g., results/run1/) to preserve reproducibility.
+
+## Metrics — short descriptions (ORT replaces OOR)
+
+- GOR (General Occurrence Rate): Frequency of gestures per referent (how often a gesture occurs for a specific referent across participants).
+- ORT (Occurrence Rate by Time): Measures the occurrence rate taking temporal exposure or interaction time into account (e.g., occurrences per unit time or normalized by exposure duration). ORT replaces the older OOR metric; see the header comments in `Octave Files/ort_func.m` for the exact formula used in this codebase.
+- VOR (Participant Occurrence Rate): Frequency normalized per participant (how often a participant used a given gesture).
+- Intuitiveness Level (IL):
+  - IL: arithmetic mean of GOR, VOR, and ORT (no normalization).
+  - ILN: mean after max-normalization.
+  - ILN1: mean after min‑max normalization.
+  In the referenced paper, ILN (max-normalization) was used for individual-gesture metrics; for vocabulary metrics, the maximum IL per referent was assigned as IL_R.
+- Consensus (Cr): measure(s) of agreement across participants for referent–gesture pairings (several aggregation methods implemented).
+- Popularity: weighted metric derived from occurrence rates.
+- CDR (Consensus‑Distinct Ratio): assesses distinctiveness vs. consensus under a chosen threshold.
+- Guessability: optional measure calculating likelihood that a gesture is guessed/adopted by others given participant-provided labels.
+
+Formulas and implementation notes are documented inside the relevant function files (see `ort_func.m`, `gor_func.m`, `vor_func.m`, `cdr_func.m`, and consensus helpers). Consult those headers for exact computation details.
+
+## Custom functions (entry and examples)
+
+Primary Octave entry points:
+- hri_metrics.m — main script combining data loading, metric calculations, and output generation.
+- gesture_metrics_eval.m — alternative driver for evaluation scenarios.
+
+Important helper functions located in `Octave Files/` (used by the entry scripts):
+- gor_func.m
+- ort_func.m
+- vor_func.m
+- cdr_func.m
+- cr_func.m and cr_* variants
+- consensus_func.m
+- contingency_func.m
+- guess_func.m
+- select_or_create_folder.m
+- display_table.m
+- calculate_DIM.m
+- norm.m, org_func.m
+- several ar_* helper functions
+
+Read each function's header comments for expected inputs and outputs.
+
+## Example workflow (concise)
+
+1. Start Octave.
+2. cd('Octave Files').
+3. run('hri_metrics.m') and select `Octave Files/FBA_gestures.csv` as input.
+4. Choose output folder (e.g., `results/run1/`).
+5. Inspect `results/run1/gesture_summary_report.txt` and `results/run1/contingency_table.csv`.
+6. (Optional) Run `R_file/Metrics_correlation.R` to produce correlation plots from the CSV outputs.
+
+## Reproducibility & housekeeping suggestions
+
+- Add a `.gitignore` with:
+  ```
+  .DS_Store
+  results/
+  *.log
+  ```
+  to avoid committing OS artifacts and temporary output.
+- Remove `.DS_Store` from the repository and avoid further commits of that file.
+- If you want deterministic, non-interactive runs for automation, add a small wrapper script (Octave or shell) that sets input/output variables and calls the main functions directly.
+
+## Contributing
+
+Contributions are welcome. Suggested workflow:
+1. Fork the repository.
+2. Create a feature branch (e.g., feature/readme-update).
+3. Run analysis scripts locally and update documentation as needed.
+4. Open a Pull Request describing the change and rationale.
+
+## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-**Example Dataset**
+## Contact / Issues
 
-An example dataset, titled **FBA_gestures.csv**, is provided for testing purposes. This dataset originates from the study by Canuto, C., Freire, E. O., Molina, L., Carvalho, E. A., & Givigi, S. N. (2022), titled Intuitiveness Level: Frustration-Based Methodology for Human–Robot Interaction Gesture Elicitation, published in IEEE Access, Volume 10, pages 17145-17154.
+Open issues in this repository to request features, report bugs, or ask for help. Include:
+- Steps to reproduce
+- The input dataset used (or a small sample)
+- The exact Octave/R command you ran and any error messages or logs
