@@ -8,7 +8,7 @@ Main entry points
 - `gesture_metrics_eval.m` — Evaluation/visualization driver (creates correlation tables and displays them).
 
 Helper functions
-Key helper functions used by the entry scripts:
+Key helper functions used by the entry scripts (not exhaustive):
 - `gor_func.m` — General Occurrence Rate
 - `ort_func.m` — Occurrence Rate by Time
 - `vor_func.m` — Participant Occurrence Rate
@@ -38,5 +38,4 @@ Outputs
 
 Notes
 - Ensure Octave’s current directory or path includes this folder so helper functions are found.
-- If you need backwards compatibility, a tiny wrapper named `exibe_tabela.m` can call `display_table(...)` (optional).
 - See root `README.md` for overall project context and links to R scripts.

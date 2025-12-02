@@ -39,7 +39,3 @@ Notes and recommendations
 Links
 - See the root `README.md` for overall project usage and installation instructions.
 - See `Octave Files/README.md` and `R_file/README.md` (if present) for folder-specific instructions.
-
-If you want, I can:
-- replace the existing `Supplementary_Material/readme.md` in the repository with this merged version (branch + PR or direct commit),
-- or create an additional `Supplementary_Material/README.md` (capitalized variant) if you prefer consistent capitalization across folders.
