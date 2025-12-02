@@ -50,7 +50,7 @@ Top-level folders and important files:
     - display_table.m
     - select_or_create_folder.m
     - norm.m, org_func.m, ar_* and cr_* jac/sor/over functions
-  - Other files: DS_Store (should be removed/ignored)
+  - Other files: .DS_Store (should be removed/ignored)
 - R_file/
   - Metrics_correlation.R — R script for metric correlation/visualization
 - Supplementary_Material/  
