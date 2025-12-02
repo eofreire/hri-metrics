@@ -1,6 +1,6 @@
 # hri_metrics
 
-Gesture analysis tools and metrics for human–robot / human–machine interaction research.
+Gesture analysis tools and metrics for human–robot/human–machine interaction research.
 
 This repository contains implementations to compute descriptive gesture metrics (occurrence rates, intuitiveness indices, consensus measures, Consensus‑Distinct Ratio (CDR), and optional guessability calculations). The codebase is organized by language and purpose to make it easier to run analyses and reproduce results from experiments.
 
@@ -120,10 +120,9 @@ Files typically produced by the Octave workflow (written inside the output folde
 
 Keep outputs in dedicated results directories (e.g., results/run1/) to preserve reproducibility.
 
-## Metrics — short descriptions (ORT replaces OOR)
 
 - GOR (General Occurrence Rate): Frequency of gestures per referent (how often a gesture occurs for a specific referent across participants).
-- ORT (Occurrence Rate by Time): Measures the occurrence rate taking temporal exposure or interaction time into account (e.g., occurrences per unit time or normalized by exposure duration). ORT replaces the older OOR metric; see the header comments in `Octave Files/ort_func.m` for the exact formula used in this codebase.
+- ORT (Occurrence Rate by Time): Measures the occurrence rate taking temporal exposure or interaction time into account (e.g., occurrences per unit time or normalized by exposure duration).
 - VOR (Participant Occurrence Rate): Frequency normalized per participant (how often a participant used a given gesture).
 - Intuitiveness Level (IL):
   - IL: arithmetic mean of GOR, VOR, and ORT (no normalization).
@@ -133,7 +132,7 @@ Keep outputs in dedicated results directories (e.g., results/run1/) to preserve 
 - Consensus (Cr): measure(s) of agreement across participants for referent–gesture pairings (several aggregation methods implemented).
 - Popularity: weighted metric derived from occurrence rates.
 - CDR (Consensus‑Distinct Ratio): assesses distinctiveness vs. consensus under a chosen threshold.
-- Guessability: optional measure calculating likelihood that a gesture is guessed/adopted by others given participant-provided labels.
+- Guessability: optional measure calculating the likelihood that a gesture is guessed/adopted by others given participant-provided labels.
 
 Formulas and implementation notes are documented inside the relevant function files (see `ort_func.m`, `gor_func.m`, `vor_func.m`, `cdr_func.m`, and consensus helpers). Consult those headers for exact computation details.
 

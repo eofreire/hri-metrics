@@ -7,8 +7,8 @@ clear all
 gestures_metrics = dlmread(strcat(path,filename),';');
 % Determine the number of volunteers and referents
 [nref, ~] = size(unique(gestures_metrics(:, 1)));
-VarNames_gesture_metrics = {'CONT'; 'POP'; 'GOR'; 'VOR'; 'OOR'; 'ILN'};
-%VarNames_gesture_metrics = {'CONT'; 'POP'; 'GOR'; 'VOR'; 'OOR'; 'IL'};
+VarNames_gesture_metrics = {'CONT'; 'POP'; 'GOR'; 'VOR'; 'ORT'; 'ILN'};
+%VarNames_gesture_metrics = {'CONT'; 'POP'; 'GOR'; 'VOR'; 'ORT'; 'IL'};
 VarNames_vocabylary_metrics = {'IL R'; 'POP'; 'Max-Con'; 'CDR'; 'CGR'; 'AR*(Jac)'; 'AR*(Sør)'; 'AR*(Over)'};
 low_thresh = 0;
 mid_thresh = 0.5;
