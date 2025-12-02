@@ -1,0 +1,93 @@
+
+Statistical Summary for Kendall's Tau - Gesture_Metrics
+=========================================================
+
+CONT vs POP
+--------------------------
+Bootstrap 95% CI: [ 0.807 ;  0.8735 ]
+Kendall's Tau:  0.8421 
+Exact p-value:  < 2.2e-16 
+
+CONT vs GOR
+--------------------------
+Bootstrap 95% CI: [ 0.8864 ;  0.9316 ]
+Kendall's Tau:  0.911 
+Exact p-value:  < 2.2e-16 
+
+CONT vs VOR
+--------------------------
+Bootstrap 95% CI: [ 0.6564 ;  0.8027 ]
+Kendall's Tau:  0.7375 
+Exact p-value:  < 2.2e-16 
+
+CONT vs ORT
+--------------------------
+Bootstrap 95% CI: [ 0.6119 ;  0.7516 ]
+Kendall's Tau:  0.6848 
+Exact p-value:  < 2.2e-16 
+
+CONT vs ILN
+--------------------------
+Bootstrap 95% CI: [ 0.6393 ;  0.7625 ]
+Kendall's Tau:  0.7033 
+Exact p-value:  < 2.2e-16 
+
+POP vs GOR
+--------------------------
+Bootstrap 95% CI: [ 0.863 ;  0.9417 ]
+Kendall's Tau:  0.904 
+Exact p-value:  < 2.2e-16 
+
+POP vs VOR
+--------------------------
+Bootstrap 95% CI: [ 0.734 ;  0.8363 ]
+Kendall's Tau:  0.7904 
+Exact p-value:  < 2.2e-16 
+
+POP vs ORT
+--------------------------
+Bootstrap 95% CI: [ 0.5497 ;  0.7332 ]
+Kendall's Tau:  0.6541 
+Exact p-value:  < 2.2e-16 
+
+POP vs ILN
+--------------------------
+Bootstrap 95% CI: [ 0.6393 ;  0.7524 ]
+Kendall's Tau:  0.699 
+Exact p-value:  < 2.2e-16 
+
+GOR vs VOR
+--------------------------
+Bootstrap 95% CI: [ 0.5896 ;  0.7341 ]
+Kendall's Tau:  0.6679 
+Exact p-value:  < 2.2e-16 
+
+GOR vs ORT
+--------------------------
+Bootstrap 95% CI: [ 0.5406 ;  0.7075 ]
+Kendall's Tau:  0.6317 
+Exact p-value:  < 2.2e-16 
+
+GOR vs ILN
+--------------------------
+Bootstrap 95% CI: [ 0.6296 ;  0.7453 ]
+Kendall's Tau:  0.6895 
+Exact p-value:  < 2.2e-16 
+
+VOR vs ORT
+--------------------------
+Bootstrap 95% CI: [ 0.5756 ;  0.7543 ]
+Kendall's Tau:  0.6725 
+Exact p-value:  < 2.2e-16 
+
+VOR vs ILN
+--------------------------
+Bootstrap 95% CI: [ 0.6009 ;  0.7292 ]
+Kendall's Tau:  0.6703 
+Exact p-value:  < 2.2e-16 
+
+ORT vs ILN
+--------------------------
+Bootstrap 95% CI: [ 0.6127 ;  0.7563 ]
+Kendall's Tau:  0.6871 
+Exact p-value:  < 2.2e-16 

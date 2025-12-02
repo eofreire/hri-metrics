@@ -1,0 +1,78 @@
+
+Statistical Summary - Gesture_Referent_5
+========================================
+
+CONT vs POP
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  5.565e-12 
+
+CONT vs GOR
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  5.565e-12 
+
+CONT vs VOR
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  5.565e-12 
+
+CONT vs ORT
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  5.565e-12 
+
+CONT vs IL
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  5.565e-12 
+
+POP vs GOR
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  5.565e-12 
+
+POP vs VOR
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  5.565e-12 
+
+POP vs ORT
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  5.565e-12 
+
+POP vs IL
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  5.565e-12 
+
+GOR vs VOR
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  5.565e-12 
+
+GOR vs ORT
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  5.565e-12 
+
+GOR vs IL
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  5.565e-12 
+
+VOR vs ORT
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  5.565e-12 
+
+VOR vs IL
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  5.565e-12 
+
+ORT vs IL
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  5.565e-12 

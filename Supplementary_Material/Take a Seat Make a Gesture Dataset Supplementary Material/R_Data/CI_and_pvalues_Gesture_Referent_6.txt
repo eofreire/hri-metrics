@@ -1,0 +1,82 @@
+
+Statistical Summary - Gesture_Referent_6
+========================================
+
+CONT vs POP
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  1.971e-11 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+CONT vs GOR
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  1.971e-11 
+
+CONT vs VOR
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  1.971e-11 
+
+CONT vs ORT
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  1.971e-11 
+
+CONT vs IL
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  1.971e-11 
+
+POP vs GOR
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  1.971e-11 
+
+POP vs VOR
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  1.971e-11 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+POP vs ORT
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  1.971e-11 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+POP vs IL
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  1.971e-11 
+
+GOR vs VOR
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  1.971e-11 
+
+GOR vs ORT
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  1.971e-11 
+
+GOR vs IL
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  1.971e-11 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+VOR vs ORT
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  1.971e-11 
+
+VOR vs IL
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  1.971e-11 
+
+ORT vs IL
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  1.971e-11 

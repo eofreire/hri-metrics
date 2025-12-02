@@ -1,0 +1,79 @@
+
+Statistical Summary - Gesture_Referent_5
+========================================
+
+CONT vs POP
+Kendall's Tau:  0.9281 
+95% CI (BCa): [ 0.7334 ,  0.9935 ]
+p-value:  2.594e-09 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+CONT vs GOR
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  1.945e-10 
+
+CONT vs VOR
+Kendall's Tau:  0.6613 
+95% CI (BCa): [ 0.3934 ,  0.8326 ]
+p-value:  6.357e-05 
+
+CONT vs ORT
+Kendall's Tau:  0.5597 
+95% CI (BCa): [ 0.2813 ,  0.7326 ]
+p-value:  0.0001009 
+
+CONT vs IL
+Kendall's Tau:  0.7746 
+95% CI (BCa): [ 0.6536 ,  0.8642 ]
+p-value:  6.919e-08 
+
+POP vs GOR
+Kendall's Tau:  0.9281 
+95% CI (BCa): [ 0.7753 ,  0.9856 ]
+p-value:  2.594e-09 
+
+POP vs VOR
+Kendall's Tau:  0.7614 
+95% CI (BCa): [ 0.5331 ,  0.8767 ]
+p-value:  3.454e-06 
+
+POP vs ORT
+Kendall's Tau:  0.5597 
+95% CI (BCa): [ 0.2125 ,  0.7304 ]
+p-value:  8.878e-05 
+
+POP vs IL
+Kendall's Tau:  0.813 
+95% CI (BCa): [ 0.6779 ,  0.8969 ]
+p-value:  1.165e-08 
+
+GOR vs VOR
+Kendall's Tau:  0.6613 
+95% CI (BCa): [ 0.3895 ,  0.8266 ]
+p-value:  6.357e-05 
+
+GOR vs ORT
+Kendall's Tau:  0.5597 
+95% CI (BCa): [ 0.3121 ,  0.7246 ]
+p-value:  0.0001009 
+
+GOR vs IL
+Kendall's Tau:  0.7746 
+95% CI (BCa): [ 0.6542 ,  0.8605 ]
+p-value:  6.919e-08 
+
+VOR vs ORT
+Kendall's Tau:  0.5295 
+95% CI (BCa): [ 0.1675 ,  0.7139 ]
+p-value:  0.0004675 
+
+VOR vs IL
+Kendall's Tau:  0.6346 
+95% CI (BCa): [ 0.4365 ,  0.7864 ]
+p-value:  2.642e-05 
+
+ORT vs IL
+Kendall's Tau:  0.7847 
+95% CI (BCa): [ 0.5679 ,  0.9168 ]
+p-value:  2.673e-09 

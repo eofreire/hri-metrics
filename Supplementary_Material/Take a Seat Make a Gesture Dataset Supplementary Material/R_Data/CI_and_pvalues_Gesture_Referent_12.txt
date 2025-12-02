@@ -1,0 +1,86 @@
+
+Statistical Summary - Gesture_Referent_12
+========================================
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+CONT vs POP
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  4.295e-10 
+
+CONT vs GOR
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  4.295e-10 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+CONT vs VOR
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  4.295e-10 
+
+CONT vs ORT
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  4.295e-10 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+CONT vs IL
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  4.295e-10 
+
+POP vs GOR
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  4.295e-10 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+POP vs VOR
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  4.295e-10 
+
+POP vs ORT
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  4.295e-10 
+
+POP vs IL
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  4.295e-10 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+GOR vs VOR
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  4.295e-10 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+GOR vs ORT
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  4.295e-10 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+GOR vs IL
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  4.295e-10 
+
+VOR vs ORT
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  4.295e-10 
+
+VOR vs IL
+Kendall's Tau:  1 
+95% CI (percentile): [ NA ,  NA ]
+p-value:  4.295e-10 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+ORT vs IL
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  4.295e-10 

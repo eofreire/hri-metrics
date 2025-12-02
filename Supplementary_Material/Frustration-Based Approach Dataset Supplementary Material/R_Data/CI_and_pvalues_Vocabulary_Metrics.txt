@@ -1,0 +1,146 @@
+
+Statistical Summary - Vocabulary_Metrics
+========================================
+
+POP vs Max_Con
+Kendall's Tau:  0.9661 
+95% CI (BCa): [ 0.6742 ,  1 ]
+p-value:  0.00741 
+
+POP vs CDR
+Kendall's Tau:  0.0667 
+95% CI (BCa): [ -1 ,  0.4545 ]
+p-value:  1 
+
+POP vs Gamma
+Kendall's Tau:  -0.6 
+95% CI (BCa): [ -1 ,  0.4231 ]
+p-value:  0.1361 
+
+POP vs Tau_0
+Kendall's Tau:  -1 
+95% CI (percentile): [ -1 ,  -1 ]
+p-value:  0.002778 
+
+POP vs AR_Jac
+Kendall's Tau:  0.6 
+95% CI (BCa): [ -0.0909 ,  1 ]
+p-value:  0.1361 
+
+POP vs AR_Sor
+Kendall's Tau:  0.6 
+95% CI (BCa): [ -0.0909 ,  1 ]
+p-value:  0.1361 
+
+POP vs AR_Over
+Kendall's Tau:  0.6 
+95% CI (BCa): [ -0.0909 ,  1 ]
+p-value:  0.1361 
+
+Max_Con vs CDR
+Kendall's Tau:  0.138 
+95% CI (BCa): [ -1 ,  0.6364 ]
+p-value:  0.7021 
+
+Max_Con vs Gamma
+Kendall's Tau:  -0.5521 
+95% CI (BCa): [ -1 ,  0.8165 ]
+p-value:  0.126 
+
+Max_Con vs Tau_0
+Kendall's Tau:  -0.9661 
+95% CI (BCa): [ -1 ,  -0.6742 ]
+p-value:  0.00741 
+
+Max_Con vs AR_Jac
+Kendall's Tau:  0.6901 
+95% CI (BCa): [ -1 ,  1 ]
+p-value:  0.05578 
+
+Max_Con vs AR_Sor
+Kendall's Tau:  0.6901 
+95% CI (BCa): [ -0.6228 ,  1 ]
+p-value:  0.05578 
+
+Max_Con vs AR_Over
+Kendall's Tau:  0.6901 
+95% CI (BCa): [ -0.4545 ,  1 ]
+p-value:  0.05578 
+
+CDR vs Gamma
+Kendall's Tau:  -0.2 
+95% CI (BCa): [ -1 ,  1 ]
+p-value:  0.7194 
+
+CDR vs Tau_0
+Kendall's Tau:  -0.0667 
+95% CI (BCa): [ -0.4545 ,  1 ]
+p-value:  1 
+
+CDR vs AR_Jac
+Kendall's Tau:  -0.0667 
+95% CI (BCa): [ -1 ,  1 ]
+p-value:  1 
+
+CDR vs AR_Sor
+Kendall's Tau:  -0.0667 
+95% CI (BCa): [ -1 ,  1 ]
+p-value:  1 
+
+CDR vs AR_Over
+Kendall's Tau:  -0.0667 
+95% CI (BCa): [ -1 ,  1 ]
+p-value:  1 
+
+Gamma vs Tau_0
+Kendall's Tau:  0.6 
+95% CI (BCa): [ -0.3333 ,  1 ]
+p-value:  0.1361 
+
+Gamma vs AR_Jac
+Kendall's Tau:  -0.2 
+95% CI (BCa): [ -1 ,  1 ]
+p-value:  0.7194 
+
+Gamma vs AR_Sor
+Kendall's Tau:  -0.2 
+95% CI (BCa): [ -1 ,  1 ]
+p-value:  0.7194 
+
+Gamma vs AR_Over
+Kendall's Tau:  -0.2 
+95% CI (BCa): [ -1 ,  1 ]
+p-value:  0.7194 
+
+Tau_0 vs AR_Jac
+Kendall's Tau:  -0.6 
+95% CI (BCa): [ -1 ,  0.0909 ]
+p-value:  0.1361 
+
+Tau_0 vs AR_Sor
+Kendall's Tau:  -0.6 
+95% CI (BCa): [ -1 ,  0.0909 ]
+p-value:  0.1361 
+
+Tau_0 vs AR_Over
+Kendall's Tau:  -0.6 
+95% CI (BCa): [ -1 ,  0.0909 ]
+p-value:  0.1361 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+AR_Jac vs AR_Sor
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  0.002778 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+AR_Jac vs AR_Over
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  0.002778 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+AR_Sor vs AR_Over
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  0.002778 

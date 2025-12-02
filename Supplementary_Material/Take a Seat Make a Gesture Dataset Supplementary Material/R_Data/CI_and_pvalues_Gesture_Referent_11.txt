@@ -1,0 +1,93 @@
+
+Statistical Summary - Gesture_Referent_11
+========================================
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+CONT vs POP
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  9.645e-10 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+CONT vs GOR
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  9.645e-10 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+CONT vs VOR
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  9.645e-10 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+CONT vs ORT
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  9.645e-10 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+CONT vs IL
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  9.645e-10 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+POP vs GOR
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  9.645e-10 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+POP vs VOR
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  9.645e-10 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+POP vs ORT
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  9.645e-10 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+POP vs IL
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  9.645e-10 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+GOR vs VOR
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  9.645e-10 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+GOR vs ORT
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  9.645e-10 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+GOR vs IL
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  9.645e-10 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+VOR vs ORT
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  9.645e-10 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+VOR vs IL
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  9.645e-10 
+[1] "All values of t are equal to  1 \n Cannot calculate confidence intervals"
+
+ORT vs IL
+Kendall's Tau:  1 
+95% CI: Could not be calculated
+p-value:  9.645e-10 
